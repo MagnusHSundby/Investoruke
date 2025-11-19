@@ -48,10 +48,6 @@ body {
 
 /*chat styling*/
 
-.chat {
-    display: grid;
-}
-
 .chatGrid {
     display: grid;
     grid-template-columns: 25% 75%;
