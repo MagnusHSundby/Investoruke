@@ -12,7 +12,7 @@
 }
 
 body {
-    background-color: aqua;
+    background-color: var(--alab2);
 }
 
 .main_content {
@@ -23,7 +23,7 @@ body {
 }
 .footer {
     
-    height: 5vh;
+    height: 8vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -86,18 +86,35 @@ body {
 
 /*chat styling*/
 
-#topLeftMenu {
-    display: flex;
-    position: absolute;
-
-    
+.chat {
+    display: grid;
 }
 
-#header {
-    font-size: 8rem;
-
+.chatGrid {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:
+        "left-top right"
+        "left-bottom right";
+    gap: 12px;
+    height: 80vh; 
+    align-items: stretch;
+    margin: 16px;
 }
 
-#smaller {
-    font-size: 1rem;
+.chatGrid .left-bottom {
+    grid-area: left-top;
+    background: var(--powderP);
+    padding: 12px;
+}
+.chatGrid .left-top {
+    grid-area: left-bottom;
+    background: var(--peach);
+    padding: 12px;
+}
+.chatGrid .right {
+    grid-area: right;
+    background: var(--powderB);
+    padding: 12px;
 }
