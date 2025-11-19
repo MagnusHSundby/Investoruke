@@ -28,3 +28,9 @@ document.addEventListener("mouseup", () => {
   isDragging = false;
   postit.style.cursor = "grab";
 });
+
+let homeDiv = document.getElementById("home");
+
+homeDiv.addEventListener("mousedown", (e) => {
+  console.log("HOME");
+});

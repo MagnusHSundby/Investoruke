@@ -39,6 +39,7 @@ body {
 
 
 
+
 .footer {
     height: 8vh;
     display: flex;
@@ -48,9 +49,7 @@ body {
 
 }
 
-/********************/
-
-.summary {
+.footer_element {
     display: flex;
     width: 100%;
     height: 100%;
@@ -58,35 +57,15 @@ body {
     align-items: center;
     
 }
-.chat {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-.home {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-.profile {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-.games {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
 
+.footer_element + .footer_element {
+    border-left: solid 1px white;
 }
+
+
+
+
+/********************/
 
 .postit {
     background-color: var(--peach);
