@@ -1,7 +1,7 @@
 let goal = prompt("What is your goal for the day?");
 console.log(goal);
-let goal_text = document.getElementById("goal");
-goal_text.innerText = goal;
+let goalText = document.getElementById("goal");
+goalText.innerText = goal;
 
 let postit = document.querySelector(".postit");
 
