@@ -76,3 +76,10 @@ body {
     background: var(--powderB);
     padding: 12px;
 }
+
+.profilepic {
+    height: 20px;
+    width: auto;
+    background-color: var(--powderB);
+    border-radius: 40px;
+}
