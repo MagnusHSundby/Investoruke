@@ -32,5 +32,6 @@ document.addEventListener("mouseup", () => {
 let homeDiv = document.getElementById("home");
 
 homeDiv.addEventListener("mousedown", (e) => {
+  window.location.href = "index.html";
   console.log("HOME");
 });

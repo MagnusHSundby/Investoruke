@@ -56,6 +56,11 @@ body {
     justify-content: center;
     align-items: center;
     
+    
+}
+
+.footer_element:hover {
+    cursor: pointer !important;
 }
 
 .footer_element + .footer_element {
