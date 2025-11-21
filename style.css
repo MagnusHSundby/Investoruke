@@ -48,8 +48,9 @@ body {
     
     display: flex;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: flex-start;
+
 
 }
 .done {

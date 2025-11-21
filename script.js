@@ -1,9 +1,14 @@
 let goal = prompt("What is your goal for the day?");
 console.log(goal);
 let goalText = document.getElementById("goal");
+
 goalText.innerText = goal;
 
 let postit = document.querySelector(".postit");
+
+postit.style.position = "absolute";
+postit.style.left = 10 + "px";
+postit.style.top = 100 + "px";
 
 let isDragging = false;
 let offsetX, offsetY;
