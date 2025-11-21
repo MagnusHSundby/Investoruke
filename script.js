@@ -35,3 +35,9 @@ homeDiv.addEventListener("mousedown", (e) => {
   window.location.href = "index.html";
   console.log("HOME");
 });
+
+let doneDiv = document.getElementsByClassName("done");
+
+if (postit.overlapping == true) {
+  snapToGrid();
+}
