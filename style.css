@@ -11,6 +11,24 @@
     --color11: #FFAF64;
 }
 
+@font-face {
+    font-family: "autumn";
+    src: url(other/fonts/Autumn.ttf);
+
+}
+
+@font-face {
+    font-family: "calenvanda";
+    src: url(other/fonts/Calenvanda.ttf);
+    
+}
+
+@font-face {
+    font-family: "kugile";
+    src: url(other/fonts/Kugile.ttf);
+    
+}
+
 
 body {
     background-color: var(--alab2);
@@ -80,6 +98,7 @@ body {
     background-image: url("images/postit.png");
     background-size: cover;
     background-position: center;
+    font-family: autumn;
 
 }
 
