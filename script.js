@@ -50,15 +50,15 @@ let vw = Math.max(
 );
 
 let watermark = document.createElement("div");
-watermark.innerText = "Done";
+watermark.innerText = "☆";
 watermark.style.cssText = `
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-25deg);
-  font-size: 30px;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.2);
   pointer-events: none;
   display: none;
   z-index: 10;
