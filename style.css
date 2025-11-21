@@ -73,13 +73,15 @@ body {
 /********************/
 
 .postit {
-    background-color: var(--peach);
     height: 25vh;
     width: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
+    background-image: url("images/postit3.png");
+    background-size: cover;
+    background-position: center;
 
 }
 
