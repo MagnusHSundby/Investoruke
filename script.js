@@ -30,6 +30,9 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener("mouseup", () => {
+  if (isDragging == true) {
+    checkDone();
+  }
   isDragging = false;
   postit.style.cursor = "grab";
 });
@@ -41,8 +44,23 @@ homeDiv.addEventListener("mousedown", (e) => {
   console.log("HOME");
 });
 
-let doneDiv = document.getElementsByClassName("done");
+const postitBouderies = postit.getBoundingClientRect();
 
-if (postit.overlapping == true) {
-  snapToGrid();
+let vw = Math.max(
+  document.documentElement.clientWidth || 0,
+  window.innerWidth || 0
+); // Gets viewport width
+
+function checkDone() {
+  const postitBouderies = postit.getBoundingClientRect();
+
+  if (postitBouderies.left > vw / 2) {
+    // If position is grater than vw / 2, it means it is completed
+    console.log("YES");
+  } else {
+    console.log("NO");
+  }
+
+  // Debug
+  console.log("Left:", postitBouderies.left);
 }
