@@ -15,7 +15,6 @@ let offsetX, offsetY;
 
 postit.addEventListener("mousedown", (e) => {
   isDragging = true;
-  // Calculate offset between mouse and postit's top-left corner
   offsetX = e.clientX - postit.offsetLeft;
   offsetY = e.clientY - postit.offsetTop;
   postit.style.cursor = "grabbing";
@@ -23,7 +22,6 @@ postit.addEventListener("mousedown", (e) => {
 
 document.addEventListener("mousemove", (e) => {
   if (isDragging) {
-    // Update position to follow cursor, accounting for offset
     postit.style.left = e.clientX - offsetX + "px";
     postit.style.top = e.clientY - offsetY + "px";
   }
@@ -49,18 +47,36 @@ const postitBouderies = postit.getBoundingClientRect();
 let vw = Math.max(
   document.documentElement.clientWidth || 0,
   window.innerWidth || 0
-); // Gets viewport width
+);
+
+let watermark = document.createElement("div");
+watermark.innerText = "Test";
+watermark.style.cssText = `
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  font-size: 30px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  display: none;
+  z-index: 10;
+`;
+postit.style.overflow = "visible";
+postit.appendChild(watermark);
 
 function checkDone() {
   const postitBouderies = postit.getBoundingClientRect();
 
   if (postitBouderies.left > vw / 2) {
-    // If position is grater than vw / 2, it means it is completed
     console.log("YES");
+    postit.style.fontSize = "15px";
+    watermark.style.display = "block";
   } else {
     console.log("NO");
+    watermark.style.display = "none";
   }
 
-  // Debug
   console.log("Left:", postitBouderies.left);
 }
