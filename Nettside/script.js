@@ -1,4 +1,6 @@
-async function fetchData() {
+let data;
+
+async function fetchData(category) {
     try {
         const response = await fetch("data/motivasjonMeldinger.json")
 
@@ -8,7 +10,7 @@ async function fetchData() {
     } catch (error) {
         console.log("Fetch error:", error.message);
     }
-    chooseMessage("happy");
+    chooseMessage(category);
 };
 
 function chooseMessage(category) {
@@ -19,7 +21,3 @@ function chooseMessage(category) {
     console.log(messages);
 };
 
-
-setInterval(() => {
-    fetchData()
-}, 3000);
