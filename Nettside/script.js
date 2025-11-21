@@ -1,4 +1,3 @@
-let data = []
 async function fetchData() {
     try {
         const response = await fetch("data/motivasjonMeldinger.json")
@@ -9,7 +8,6 @@ async function fetchData() {
     } catch (error) {
         console.log("Fetch error:", error.message);
     }
-    // console.log(data.motivational_messages.happy[0])
     chooseMessage("happy");
 };
 
@@ -18,10 +16,7 @@ function chooseMessage(category) {
     let randomIndex = Math.floor(Math.random() * count)
 
     let messages = data.motivational_messages[category][randomIndex]
-
-    console.log("Count:", count);
-    console.log("Random index:", randomIndex);
-    console.log("Random message:", messages);
+    console.log(messages);
 };
 
 
