@@ -1,0 +1,30 @@
+{
+  "motivational_messages": {
+    "happy": [
+      "Fortsett det gode arbeidet, du sprer positiv energi!",
+      "Smilet ditt gjør dagen lysere – hold det gående!",
+      "Gode ting skjer når du holder humøret oppe!"
+    ],
+    "tired": [
+      "Husk å ta en pause – selv små steg teller!",
+      "Det er lov å puste ut og hente ny energi.",
+      "Du har allerede gjort mye i dag. Gi deg selv ros!"
+    ],
+    "stressed": [
+      "Ta et dypt åndedrag, du har kontroll over dette.",
+      "Små fremskritt er fortsatt fremskritt.",
+      "Det er greit å ikke ha alt under kontroll. Ett steg av gangen."
+    ],
+    "unmotivated": [
+      "Hver handling teller – start med bare ett lite steg.",
+      "Selv en liten innsats kan skape stor forskjell over tid.",
+      "Du er i stand til mer enn du tror, prøv å begynne et sted!"
+    ],
+    "reflective": [
+      "Se tilbake på hva du har oppnådd – det er mer enn du tror.",
+      "Tiden du investerer i deg selv bærer frukt senere.",
+      "Hver erfaring er et skritt mot vekst og læring."
+    ]
+  }
+}
+
