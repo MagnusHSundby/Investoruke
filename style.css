@@ -1,0 +1,82 @@
+:root {
+    --color1: #FF9888;
+    --color2: #FFADA1;
+    --color3: #FFB8B2;
+    --color5: #F2CDC7;
+    --color6: #D2D2CA;
+    --color7: #BBD1C5;
+    --color8: #DECCBB;
+    --color9: #FFC3A8;
+    --color10: #FFB883;
+    --color11: #FFAF64;
+}
+
+@font-face {
+    font-family: "autumn";
+    src: url(other/fonts/Autumn.ttf);
+
+}
+
+@font-face {
+    font-family: "calenvanda";
+    src: url(other/fonts/Calenvanda.ttf);
+    
+}
+
+@font-face {
+    font-family: "kugile";
+    src: url(other/fonts/Kugile.ttf);
+    
+}
+
+
+body {
+    background-color: var(--color9);
+}
+
+.main_content {
+    display: flex;
+    flex-direction: row;   
+    justify-content: space-evenly; 
+    height: 90vh;
+    background-image: url(images/diary.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+}
+
+.footer {
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+
+}
+
+.footer_element {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_element:hover {
+    cursor: pointer !important;
+}
+
+.footer_element + .footer_element {
+    border-left: solid 1px white;
+}
+
+
+
+
+/********************/
+
+img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
