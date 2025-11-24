@@ -77,6 +77,17 @@ img {
 }
 
 
+.left {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 50%;
+}
+
+.right {
+    width: 50%;
+}
+
 .profile {
     display: flex;
     flex-direction: row;
@@ -97,4 +108,32 @@ img {
     font-size: 50px;
     font-family: calenvanda;
     
+}
+
+.achievements_element {
+    display: flex;
+    flex-direction: row;
+}
+
+.achievements_image {
+    height: 50px;
+}
+
+.achievements_text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vh;
+}
+.achievements_title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: autumn;
+}
+.achievements_desc {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-family: kugile;
 }
