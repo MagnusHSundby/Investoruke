@@ -80,3 +80,20 @@ img {
     height: 100%;
     width: 100%;
 }
+
+.games {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.games_element {
+    background-color: var(--color11);
+    display: flex;
+    flex-direction: row;
+}
+
+#game_pic {
+    height: 100px;
+    width: auto;
+}
