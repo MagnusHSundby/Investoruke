@@ -101,6 +101,9 @@ img {
     margin-bottom: 2vh;
 }
 
+.games_element:hover {
+    cursor: pointer !important;
+}
 
 
 .game_pic {
