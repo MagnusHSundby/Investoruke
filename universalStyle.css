@@ -42,16 +42,6 @@
 	--color11: #FFAF64;
 }
 
-/* Mapping: chat palette -> hjem/game palette equivalents
-	--powderB  -> --color1
-	--almondS  -> --color2
-	--softB    -> --color3
-	--sea      -> --color5
-	--alab1    -> --color6
-	--alab2    -> --color5
-	--powderP  -> --color5
-	--peach    -> --color9
-*/
 
 /* ==========================
    Font faces (from hjem & game)
@@ -78,12 +68,11 @@
 /* Body background: multiple variants observed across files. Keep alternatives
    as comments below. Choose default to --color9 (hjem) to match main site.
 */
+/* la alle sidene definere sin egen bakgrunnsfarge for å se bedre ut
 body {
-	/* ALTERNATE (chat): background-color: var(--alab2); */
-	/* ALTERNATE (game): background-color: var(--color5); */
 	background-color: var(--color9);
 }
-
+*/
 /* Some files used a full-height flex layout recommendation. If you want
    the footer to stay at the bottom reliably, consider enabling the
    html/body height + body flex rules (kept commented so you can opt-in).
@@ -155,7 +144,7 @@ img {
 	left: 0;
 	right: 0;
 	/* replaced chat var --alab1 -> hjem var --color6 */
-	background-color: var(--color6);
+	background-color: var(--color2);
 	/* ALTERNATE (hjem/game): remove fixed positioning to let footer flow
 	   with the document:
 	position: static; bottom: auto; left: auto; right: auto;
@@ -198,7 +187,7 @@ img {
 	   url("images/postit.png")  (root chat)
 	   url("../images/postit.png") (hjem)
 	*/
-	background-image: url("../images/postit.png");
+	background-image: url("images/postit.png");
 	background-size: cover;
 	background-position: center;
 	font-family: calenvanda;
