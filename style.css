@@ -31,7 +31,7 @@
 
 
 body {
-    background-color: var(--color9);
+    background-color: var(--color5);
 }
 
 .main_content {
@@ -97,7 +97,8 @@ img {
     display: flex;
     flex-direction: row;
     margin-right: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 
