@@ -1,0 +1,96 @@
+/*generell styling*/
+
+:root {
+    --powderB: #FEC5BB;
+    --almondS: #FCD5CE;
+    --softB: #FAE1DD;
+    --sea: #F8EDEB;
+    --alab1: #E8E8E4;
+    --alab2: #D8E2DC;
+    --linen: #ECE4DB;
+    --powderP: #FFE5D9;
+    --peach: #FFD7BA;
+    --peachG: #FEC89A;
+}
+
+body {
+    background-color: var(--alab2);
+}
+
+img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+/*footer styling*/
+.footer {
+    z-index: 1000;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--alab1);
+}
+
+.footer_element {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.footer_element + .footer_element {
+    border-left: solid 1px white;
+}
+
+.footer_element :hover{
+    cursor: pointer !important;
+    transform: scale(1.01);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/*chat styling*/
+
+.chatGrid {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:
+        "left-top right"
+        "left-bottom right";
+    gap: 12px;
+    height: 80vh; 
+    align-items: stretch;
+    margin: 16px;
+}
+
+.chatGrid .left-top {
+    grid-area: left-top;
+    background: var(--powderP);
+    padding: 12px;
+}
+.chatGrid .left-bottom {
+    grid-area: left-bottom;
+    background: var(--peach);
+    padding: 12px;
+    font-size: 20px;
+}
+.chatGrid .right {
+    grid-area: right;
+    background: var(--powderB);
+    padding: 12px;
+}
+
+.profilepic {
+    height: 30px;
+    width: auto;
+    background-color: var(--powderB);
+    border-radius: 40px;
+}
