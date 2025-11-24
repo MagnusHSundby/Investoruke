@@ -13,19 +13,19 @@
 
 @font-face {
     font-family: "autumn";
-    src: url(other/fonts/Autumn.ttf);
+    src: url(other/fonts/autumn.ttf);
 
 }
 
 @font-face {
     font-family: "calenvanda";
-    src: url(other/fonts/Calenvanda.ttf);
+    src: url(other/fonts/calenvanda.ttf);
     
 }
 
 @font-face {
     font-family: "kugile";
-    src: url(other/fonts/Kugile.ttf);
+    src: url(other/fonts/kugile.ttf);
     
 }
 
@@ -82,18 +82,37 @@ img {
 }
 
 .games {
-    display: flex;
+    display: grid;
     flex-direction: column;
+    grid-template-columns: auto auto;
+    width: auto;
 }
 
 
 .games_element {
     background-color: var(--color11);
+    border-radius: 10px;
+    border-width: 10px;
+    height: 13vh;
     display: flex;
     flex-direction: row;
+    margin-right: 5vh;
+    margin-bottom: 5vh;
 }
 
-#game_pic {
+
+
+.game_pic {
     height: 100px;
     width: auto;
+}
+
+.two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    font-size: 50px;
+    font-family: calenvanda;
 }
