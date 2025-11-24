@@ -71,7 +71,6 @@ function checkDone() {
 
   if (postitBouderies.left > vw / 2) {
     console.log("YES");
-    postit.style.fontSize = "15px";
     watermark.style.display = "block";
   } else {
     console.log("NO");
