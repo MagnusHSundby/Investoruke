@@ -1,13 +1,15 @@
 let data;
-
-
+let same = false;
 let goal = null;
 const todayStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
 const savedDate = localStorage.getItem('dailyGoalDate');
 const savedGoal = localStorage.getItem('dailyGoal');
+
+// sjekker dagen
 if (savedDate === todayStr && savedGoal !== null) {
   goal = savedGoal;
-} else {
+  same = true;
+} else { // hvis dagen ikke allerede har et mål
   goal = prompt("What is your goal for the day?") || '';
   localStorage.setItem('dailyGoal', goal);
   localStorage.setItem('dailyGoalDate', todayStr);
@@ -19,10 +21,10 @@ if (goalText) goalText.innerText = goal;
 let postit = document.querySelector(".postit");
 if (postit) {
   postit.style.position = "absolute";
-  
+  // posisjon for postit hvis det finnes, og det er samme dag som når du sist skrev inn mål
   try {
     const savedPos = JSON.parse(localStorage.getItem('postitPos'));
-    if (savedPos && typeof savedPos.left === 'number' && typeof savedPos.top === 'number') {
+    if (savedPos && typeof savedPos.left === 'number' && typeof savedPos.top === 'number' && same === true) {
       postit.style.left = savedPos.left + 'px';
       postit.style.top = savedPos.top + 'px';
     } else {
@@ -38,7 +40,7 @@ if (postit) {
 let isDragging = false;
 let offsetX, offsetY;
 
-if (postit) {
+if (postit) { // ta postit
   postit.addEventListener("mousedown", (e) => {
     isDragging = true;
     offsetX = e.clientX - postit.offsetLeft;
@@ -47,14 +49,14 @@ if (postit) {
   });
 }
 
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("mousemove", (e) => { // flytte postit
   if (isDragging && postit) {
     postit.style.left = e.clientX - offsetX + "px";
     postit.style.top = e.clientY - offsetY + "px";
   }
 });
 
-document.addEventListener("mouseup", () => {
+document.addEventListener("mouseup", () => { //slippe postit
   const wasDragging = isDragging;
   isDragging = false;
   if (postit) postit.style.cursor = "grab";
@@ -68,13 +70,11 @@ document.addEventListener("mouseup", () => {
   }
 });
 
-function savePostitPosition() {
+function savePostitPosition() { // lagre postit posisjon
   if (!postit) return;
-  // parse pixel values to numbers
   const leftPx = parseFloat(postit.style.left) || postit.getBoundingClientRect().left || 0;
   const topPx = parseFloat(postit.style.top) || postit.getBoundingClientRect().top || 0;
   localStorage.setItem('postitPos', JSON.stringify({ left: leftPx, top: topPx }));
-  // also save whether it's considered done (right half)
   const vwLocal = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
   const done = leftPx > vwLocal / 2;
   localStorage.setItem('postitDone', done ? '1' : '0');
@@ -97,7 +97,7 @@ let vw = Math.max(
 );
 
 let watermark = document.createElement("div");
-watermark.innerText = "☆";
+watermark.innerText = "☆"; // stjerne for når du er ferdig med målet
 watermark.style.cssText = `
   position: absolute;
   top: 50%;
@@ -110,7 +110,7 @@ watermark.style.cssText = `
   display: none;
   z-index: 10;
 `;
-if (postit) {
+if (postit) { 
   postit.style.overflow = "visible";
   postit.appendChild(watermark);
   const savedDone = localStorage.getItem('postitDone');
@@ -123,7 +123,7 @@ if (postit) {
   }
 }
 
-function checkDone() {
+function checkDone() { // sjekker om posisjonen er riktig for å tegne stjerne
   if (!postit) return;
   const postitBouderies = postit.getBoundingClientRect();
 
@@ -142,7 +142,7 @@ function checkDone() {
   console.log("Left:", postitBouderies.left);
 }
 
-async function fetchData(category) {
+async function fetchData(category) { // henter motivasjonsmeldinger fra json
     try {
         const response = await fetch("data/motivasjonMeldinger.json")
 
@@ -155,7 +155,7 @@ async function fetchData(category) {
     chooseMessage(category);
 };
 
-function chooseMessage(category) {
+function chooseMessage(category) { // velger en tilfeldig melding basert på hvordan du har skrevet at du føler deg
     let count = data.motivational_messages[category].length;
     let randomIndex = Math.floor(Math.random() * count)
 
