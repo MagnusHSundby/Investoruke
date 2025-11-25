@@ -40,6 +40,8 @@
 	--color9: #FFC3A8;
 	--color10: #FFB883;
 	--color11: #FFAF64;
+	--color18: rgba(255, 195,168, 0.44);
+	--colorWhite: #FFFFF0;
 }
 
 
@@ -93,8 +95,9 @@ img {
 /* ==========================
    Main content / Goals / Done
    ========================== */
-.main_content {
-	display: flex;
+main_content {
+    
+    display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
 	/* ALTERNATE: some files used explicit height: 90vh; */
@@ -102,7 +105,7 @@ img {
 	/* Background image variants between files: */
 	/* ALTERNATE (hjem): background-image: url(../images/diary.jpg); */
 	/* ALTERNATE (game): background-image: url(images/diary.jpg); */
-	background-image: url(images/diary.jpg);
+	background-image: url("images/diary.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -265,6 +268,7 @@ img {
 	margin-right: 5vh;
 	margin-top: 2vh;
 	margin-bottom: 2vh;
+	align-items: center;
 }
 .games_element:hover { cursor: pointer !important; }
 
