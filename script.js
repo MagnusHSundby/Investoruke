@@ -39,3 +39,11 @@ function addAchievement(
 }
 
 addAchievement("Early bird", "Message someone before 6:00");
+
+function addComplimentsBoxes() {
+  let newBox = document.createElement("input");
+
+  newBox.className = "input_box";
+
+  let boxContainer = document.querySelector(".main_content .right .other");
+}
