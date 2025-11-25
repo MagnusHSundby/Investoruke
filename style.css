@@ -2,14 +2,21 @@
     --color1: #FF9888;
     --color2: #FFADA1;
     --color3: #FFB8B2;
-    --color5: #F2CDC7;
-    --color6: #D2D2CA;
-    --color7: #BBD1C5;
-    --color8: #DECCBB;
-    --color9: #FFC3A8;
-    --color10: #FFB883;
-    --color11: #FFAF64;
+    --color4: #F2CDC7;
+    --color5: #D2D2CA;
+    --color6: #BBD1C5;
+    --color7: #DECCBB;
+    --color8: #FFC3A8;
+    --color9: #FFB883;
+    --color10: #FFAF64;
+
+
+    --color18: rgba(255, 195, 168, 0.44);
+
+
 }
+
+
 
 @font-face {
     font-family: "autumn";
@@ -31,7 +38,7 @@
 
 
 body {
-    background-color: var(--color9);
+    background-color: #FFFFF0;
 }
 
 .main_content {
@@ -91,8 +98,8 @@ img {
 .profile {
     display: flex;
     flex-direction: row;
-
     height: 15%;
+    margin-bottom: 10vh;
 }
 
 .picture {
@@ -113,6 +120,10 @@ img {
 .achievements_element {
     display: flex;
     flex-direction: row;
+    background-color: var(--color18);
+    border-radius: 10px;
+    min-width: 250px;
+    margin-left: 20px;
 }
 
 .achievements_image {
@@ -129,11 +140,32 @@ img {
     align-items: center;
     font-size: 20px;
     font-weight: bold;
-    font-family: autumn;
+    font-family: calenvanda;
 }
 .achievements_desc {
     display: flex;
     align-items: center;
     font-size: 15px;
+    font-family: kugile;
+}
+
+.intro {
+    border-radius: 10px;
+    border-color: #D2D2CA;
+    border-width: 10px;
+    background-color: var(--color18);
+
+    padding: 5px;
+}
+
+.title {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+
+    font-family: calenvanda;
+    font-size: 25px;
+}
+
+.text {
     font-family: kugile;
 }
