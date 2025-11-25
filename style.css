@@ -124,6 +124,7 @@ img {
     border-radius: 10px;
     min-width: 250px;
     margin-left: 20px;
+    align-items: center;
 }
 
 .achievements_image {
@@ -134,13 +135,15 @@ img {
     display: flex;
     flex-direction: column;
     margin-left: 1vh;
+    margin-right: 2vh;
 }
 .achievements_title {
     display: flex;
     align-items: center;
     font-size: 20px;
     font-weight: bold;
-    font-family: calenvanda;
+    font-family: autumn;
+    padding-top: 10px;
 }
 .achievements_desc {
     display: flex;
@@ -154,18 +157,20 @@ img {
     border-color: #D2D2CA;
     border-width: 10px;
     background-color: var(--color18);
-
+    margin-right: 30vh;
+    margin-top: 2vh;
     padding: 5px;
 }
 
 .title {
     margin-top: 2vh;
     margin-bottom: 2vh;
-
+    text-align: center;
     font-family: calenvanda;
     font-size: 25px;
 }
 
 .text {
     font-family: kugile;
+    text-align: center;
 }
