@@ -38,4 +38,4 @@ function addAchievement(
   console.log("ADDED");
 }
 
-addAchievement("Hello world!", "Log on for the first time.");
+addAchievement("Early bird", "Message someone before 6:00");
