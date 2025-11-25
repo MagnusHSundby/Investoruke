@@ -124,6 +124,7 @@ img {
     border-radius: 10px;
     min-width: 250px;
     margin-left: 20px;
+    margin-top: 20px;
     align-items: center;
 }
 
@@ -160,6 +161,7 @@ img {
     margin-right: 30vh;
     margin-top: 2vh;
     padding: 5px;
+    min-width: 40vw;
 }
 
 .title {
