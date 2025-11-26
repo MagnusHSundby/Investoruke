@@ -3,6 +3,7 @@
 <head>
   <title>Basic Snake HTML Game</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="../universalStyle.css">
   <style>
   html, body {
     height: 100%;
@@ -10,18 +11,26 @@
   }
 
   body {
-    background: black;
+    background-color: var(--color10);
     display: flex;
     align-items: center;
     justify-content: center;
   }
   canvas {
     border: 1px solid white;
+    background: black;
   }
   </style>
 </head>
 <body>
 <canvas width="400" height="400" id="game"></canvas>
+<div class="footer"> <!-- Legg til HREF senere-->
+    <a class="footer_element" href="../summary/summary.html" id="test"> <img src="../Ikoner/Summary icon.png"></a>
+    <a class="footer_element" href="../chat/chat.html"> <img src="../Ikoner/Chat icon.png"> </a>
+    <a class="footer_element" href="../hjem/index.html"> <img src="../Ikoner/Home Icon.png"> </a>
+    <a class="footer_element" href="../profile/profile.html"> <img src="../Ikoner/Profile icon.png"> </a>
+    <a class="footer_element" href="../game/game.html"> <img src="../Ikoner/Game icon.png"> </a>
+</div>
 <script>
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');

@@ -8,14 +8,32 @@
   html, body {
     height: 100%;
     margin: 0;
+    overflow: hidden; 
+  }
+
+  body {
+    background-color: var(--color10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8vh;
   }
 
   canvas {
     border: 1px solid white;
+    background: black;
   }
   </style>
 </head>
 <body>
+
+  <div class="footer"> <!-- Legg til HREF senere-->
+    <a class="footer_element" href="../summary/summary.html" id="test"> <img src="../Ikoner/Summary icon.png"></a>
+    <a class="footer_element" href="../chat/chat.html"> <img src="../Ikoner/Chat icon.png"> </a>
+    <a class="footer_element" href="../hjem/index.html"> <img src="../Ikoner/Home Icon.png"> </a>
+    <a class="footer_element" href="../profile/profile.html"> <img src="../Ikoner/Profile icon.png"> </a>
+    <a class="footer_element" href="../game/game.html"> <img src="../Ikoner/Game icon.png"> </a>
+</div>
 <canvas width="320" height="640" id="game"></canvas>
 <script>
 // https://tetris.fandom.com/wiki/Tetris_Guideline
