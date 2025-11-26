@@ -38,16 +38,14 @@ function addAchievement(
   console.log("ADDED");
 }
 
-addAchievement("Early bird", "Message someone before 6:00");
-
 function addComplimentsBoxes() {
-  var boxContainer = document.querySelector(
+  let boxContainer = document.querySelector(
     ".main_content .right .other .inputs"
   );
-  var inputs = [];
+  let inputs = [];
 
-  for (var i = 0; i < 3; i++) {
-    var newBox = document.createElement("input");
+  for (let i = 0; i < 3; i++) {
+    let newBox = document.createElement("input");
     newBox.className = "input_box";
     newBox.type = "text";
     newBox.placeholder = "Compliment ";
@@ -56,8 +54,8 @@ function addComplimentsBoxes() {
   }
 
   function checkCompletion() {
-    var allFilled = true;
-    for (var i = 0; i < inputs.length; i++) {
+    let allFilled = true;
+    for (let i = 0; i < inputs.length; i++) {
       if (inputs[i].value.trim() === "") {
         allFilled = false;
         break;
@@ -65,21 +63,21 @@ function addComplimentsBoxes() {
     }
 
     if (allFilled) {
-      for (var i = 0; i < inputs.length; i++) {
+      for (let i = 0; i < inputs.length; i++) {
         inputs[i].removeEventListener("input", checkCompletion);
       }
 
       setTimeout(function () {
-        for (var i = 0; i < inputs.length; i++) {
+        for (let i = 0; i < inputs.length; i++) {
           inputs[i].classList.add("fade-out");
         }
 
         setTimeout(function () {
-          for (var i = 0; i < inputs.length; i++) {
+          for (let i = 0; i < inputs.length; i++) {
             inputs[i].style.display = "none";
           }
 
-          var successMsg = document.createElement("div");
+          let successMsg = document.createElement("div");
           successMsg.className = "success-message fade-in";
           successMsg.innerHTML = "<h2>Good job!</h2>";
           boxContainer.appendChild(successMsg);
@@ -88,15 +86,19 @@ function addComplimentsBoxes() {
     }
   }
 
-  for (var i = 0; i < inputs.length; i++) {
+  for (let i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener("input", checkCompletion);
   }
 }
 
-let currentTime = new Date();
+// Wait for DOM to be fully loaded before calling functions
+document.addEventListener("DOMContentLoaded", function () {
+  addAchievement("Early bird", "Message someone before 6:00");
 
-let clock = currentTime.getHours();
+  let currentTime = new Date();
+  let clock = currentTime.getHours();
 
-if (clock > 19) {
-  addComplimentsBoxes();
-}
+  if (clock > 19) {
+    addComplimentsBoxes();
+  }
+});
