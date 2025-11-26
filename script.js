@@ -93,4 +93,10 @@ function addComplimentsBoxes() {
   }
 }
 
-addComplimentsBoxes();
+let currentTime = new Date();
+
+let clock = currentTime.getHours();
+
+if (clock > 19) {
+  addComplimentsBoxes();
+}
