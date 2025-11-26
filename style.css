@@ -176,3 +176,32 @@ img {
     font-family: kugile;
     text-align: center;
 }
+
+
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 100px;
+    margin-top: 10vh;
+}
+
+.input_box {
+    margin-top: 2vh;
+}
+
+.input_box {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-top: 2vh;
+      font-size: 16px;
+      border: 2px solid var(--color3);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }

@@ -41,9 +41,56 @@ function addAchievement(
 addAchievement("Early bird", "Message someone before 6:00");
 
 function addComplimentsBoxes() {
-  let newBox = document.createElement("input");
+  var boxContainer = document.querySelector(
+    ".main_content .right .other .inputs"
+  );
+  var inputs = [];
 
-  newBox.className = "input_box";
+  for (var i = 0; i < 3; i++) {
+    var newBox = document.createElement("input");
+    newBox.className = "input_box";
+    newBox.type = "text";
+    newBox.placeholder = "Compliment ";
+    boxContainer.appendChild(newBox);
+    inputs.push(newBox);
+  }
 
-  let boxContainer = document.querySelector(".main_content .right .other");
+  function checkCompletion() {
+    var allFilled = true;
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].value.trim() === "") {
+        allFilled = false;
+        break;
+      }
+    }
+
+    if (allFilled) {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].removeEventListener("input", checkCompletion);
+      }
+
+      setTimeout(function () {
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].classList.add("fade-out");
+        }
+
+        setTimeout(function () {
+          for (var i = 0; i < inputs.length; i++) {
+            inputs[i].style.display = "none";
+          }
+
+          var successMsg = document.createElement("div");
+          successMsg.className = "success-message fade-in";
+          successMsg.innerHTML = "<h2>Good job!</h2>";
+          boxContainer.appendChild(successMsg);
+        }, 1000);
+      }, 500);
+    }
+  }
+
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener("input", checkCompletion);
+  }
 }
+
+addComplimentsBoxes();
