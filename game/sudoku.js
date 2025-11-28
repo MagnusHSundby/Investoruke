@@ -292,8 +292,6 @@
 			$boardInputs = $board.find("input");
 			$boardInputCandidates = $board.find(".candidates");
 
-			
-			$board.append(HTMLSnippet);
 
 
 		};

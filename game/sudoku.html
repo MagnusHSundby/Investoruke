@@ -3,13 +3,7 @@
 
     
 <head>
-<link rel="stylesheet" href="../universalStyle.css">
 <style>
-
-body {
-    background-color: var(--color10);
-}
-
 .sudoku-board {
  min-height: 22.75rem;
  margin-top: 3px;
@@ -173,20 +167,11 @@ cursor: pointer;
 }
 </style>
 
-<script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+<script src="sudoku2.js"></script>
 <script src="sudoku.js"></script>
 </head> 
 
-<body> 
-<div class="footer"> <!-- Legg til HREF senere-->
-    <a class="footer_element" href="../summary/summary.html" id="test"> <img src="../Ikoner/Summary icon.png"></a>
-    <a class="footer_element" href="../chat/chat.html"> <img src="../Ikoner/Chat icon.png"> </a>
-    <a class="footer_element" href="../hjem/index.html"> <img src="../Ikoner/Home Icon.png"> </a>
-    <a class="footer_element" href="../profile/profile.html"> <img src="../Ikoner/Profile icon.png"> </a>
-    <a class="footer_element" href="../game/game.html"> <img src="../Ikoner/Game icon.png"> </a>
-</div>
-
-
+<body>
 <div class="wrap">
 		
 <!--show candidates toggle-->
@@ -210,7 +195,6 @@ Solve: <button type="button" class="sudokubutton5 js-solve-step-btn">One Step</b
 <!--clear board btn-->
 Clear: <button type="button" class="sudokubutton7 js-clear-board-btn">Board</button>
 </div>
-
 
 <script>
  var $candidateToggle = $(".js-candidate-toggle"),
