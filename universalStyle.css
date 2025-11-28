@@ -45,6 +45,10 @@
 	--colorWhite: #FFFFF0;
 }
 
+a, u {
+	text-decoration: none;
+	color: black;
+}
 
 /* ==========================
    Font faces (from hjem & game)
