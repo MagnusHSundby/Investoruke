@@ -86,7 +86,7 @@ window.addEventListener('beforeunload', savePostitPosition);
 let homeDiv = document.getElementById("home");
 if (homeDiv) {
   homeDiv.addEventListener("mousedown", (e) => {
-    window.location.href = "index.html";
+    window.location.href = "/hjem";
     console.log("HOME");
   });
 }
@@ -144,7 +144,7 @@ function checkDone() { // sjekker om posisjonen er riktig for å tegne stjerne
 
 async function fetchData(category) { // henter motivasjonsmeldinger fra json
     try {
-        const response = await fetch("data/motivasjonMeldinger.json")
+        const response = await fetch("/data/motivasjonMeldinger.json")
 
         if (!response.ok) throw new Error(`Response ${response.status}`);
 

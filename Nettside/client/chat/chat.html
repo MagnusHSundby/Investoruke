@@ -3,192 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/universalStyle.css">
+<link rel="stylesheet" href="../assets/css/universalStyle.css">
+<link rel="stylesheet" href="chat.css">
 <title>Dear Diary Chat</title>
-<style>
-/* Chat-specific color variables */
-:root {
---powderB: #FEC5BB;
---almondS: #FCD5CE;
---softB: #FAE1DD;
---sea: #F8EDEB;
---alab1: #E8E8E4;
---alab2: #D8E2DC;
---linen: #ECE4DB;
---powderP: #FFE5D9;
---peach: #FFD7BA;
---peachG: #FEC89A;
-}
-
-body {
-margin: 0;
-padding-bottom: 8vh;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-background-color: var(--alab2);
-}
-
-/* Chat Grid Layout */
-.chatGrid {
-display: grid;
-grid-template-columns: 25% 75%;
-grid-template-rows: 1fr 3fr;
-grid-template-areas:
-"left-top right"
-"left-bottom right";
-gap: 12px;
-height: calc(92vh - 16px);
-align-items: stretch;
-margin: 16px;
-margin-bottom: 8vh;
-}
-
-.chatGrid .left-top {
-grid-area: left-top;
-background: var(--powderP);
-padding: 12px;
-border-radius: 8px;
-}
-
-.chatGrid .left-bottom {
-grid-area: left-bottom;
-background: var(--peach);
-padding: 12px;
-font-size: 20px;
-border-radius: 8px;
-overflow-y: auto;
-}
-
-.chatGrid .right {
-grid-area: right;
-background: var(--powderB);
-padding: 12px;
-border-radius: 8px;
-display: flex;
-flex-direction: column;
-}
-
-/* Profile Pictures in User List */
-.profilepic {
-height: 30px;
-width: 30px;
-background-color: var(--powderB);
-border-radius: 50%;
-margin-right: 8px;
-vertical-align: middle;
-object-fit: cover;
-}
-
-.left-bottom > div {
-padding: 8px;
-margin: 4px 0;
-border-radius: 4px;
-cursor: pointer;
-transition: background-color 0.2s;
-}
-
-.left-bottom > div:hover {
-background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Messages Area */
-#messages {
-list-style-type: none;
-margin: 0;
-padding: 0;
-flex-grow: 1;
-overflow-y: auto;
-margin-bottom: 12px;
-}
-
-#messages > li {
-padding: 0.5rem 1rem;
-margin: 4px 0;
-border-radius: 8px;
-background: rgba(255, 255, 255, 0.5);
-}
-
-#messages > li:nth-child(odd) {
-background: rgba(255, 255, 255, 0.7);
-}
-
-/* Message Form */
-#form {
-background: rgba(0, 0, 0, 0.1);
-padding: 0.5rem;
-display: flex;
-height: 3rem;
-box-sizing: border-box;
-backdrop-filter: blur(10px);
-border-radius: 8px;
-}
-
-#input {
-border: none;
-padding: 0 1rem;
-flex-grow: 1;
-border-radius: 2rem;
-margin-right: 0.5rem;
-background: white;
-}
-
-#input:focus {
-outline: none;
-box-shadow: 0 0 0 2px var(--powderB);
-}
-
-#form > button {
-background: #333;
-border: none;
-padding: 0 1.5rem;
-border-radius: 2rem;
-outline: none;
-color: #fff;
-cursor: pointer;
-transition: background-color 0.2s;
-}
-
-#form > button:hover {
-background: #555;
-}
-
-/* Footer Navigation */
-.footer {
-z-index: 1000;
-height: 8vh;
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-align-items: flex-end;
-position: fixed;
-bottom: 0;
-left: 0;
-right: 0;
-background-color: var(--alab1);
-}
-
-.footer_element {
-display: flex;
-width: 100%;
-height: 100%;
-justify-content: center;
-align-items: center;
-}
-
-.footer_element + .footer_element {
-border-left: solid 1px white;
-}
-
-.footer_element img {
-object-fit: contain;
-height: 60%;
-width: auto;
-}
-
-.footer_element:hover {
-cursor: pointer;
-background-color: rgba(0, 0, 0, 0.05);
-}
-</style>
 </head>
 <body>
 <div class="chatGrid">
@@ -197,9 +14,9 @@ background-color: rgba(0, 0, 0, 0.05);
 <p id="userId">Connecting...</p>
 </div>
 <div class="left-bottom">
-<div><img class="profilepic" src="/images/postit.png"> User 1</div>
-<div><img class="profilepic" src="/images/postit.png"> User 2</div>
-<div><img class="profilepic" src="/images/postit.png"> User 3</div>
+<div><img class="profilepic" src="/assets/images/postit.png"> User 1</div>
+<div><img class="profilepic" src="/assets/images/postit.png"> User 2</div>
+<div><img class="profilepic" src="/assets/images/postit.png"> User 3</div>
 </div>
 <div class="right">
 <ul id="messages"></ul>
@@ -219,54 +36,6 @@ background-color: rgba(0, 0, 0, 0.05);
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
-<script>
-const socket = io();
-const form = document.getElementById('form');
-const input = document.getElementById('input');
-const messages = document.getElementById('messages');
-const userIdDisplay = document.getElementById('userId');
-
-// Display user ID
-socket.on('user id', (userId) => {
-userIdDisplay.textContent = `Connected as: ${userId}`;
-});
-
-// Handle user joined
-socket.on('user joined', (userId) => {
-const item = document.createElement('li');
-item.textContent = `${userId} joined the chat`;
-item.style.fontStyle = 'italic';
-item.style.color = '#666';
-messages.appendChild(item);
-messages.scrollTop = messages.scrollHeight;
-});
-
-// Handle user left
-socket.on('user left', (userId) => {
-const item = document.createElement('li');
-item.textContent = `${userId} left the chat`;
-item.style.fontStyle = 'italic';
-item.style.color = '#666';
-messages.appendChild(item);
-messages.scrollTop = messages.scrollHeight;
-});
-
-// Handle form submission
-form.addEventListener('submit', (e) => {
-e.preventDefault();
-if (input.value) {
-socket.emit('chat message', input.value);
-input.value = '';
-}
-});
-
-// Handle incoming messages
-socket.on('chat message', (data) => {
-const item = document.createElement('li');
-item.innerHTML = `<strong>${data.user}:</strong> ${data.message}`;
-messages.appendChild(item);
-messages.scrollTop = messages.scrollHeight;
-});
-</script>
+<script src="chat.js"></script>
 </body>
 </html>

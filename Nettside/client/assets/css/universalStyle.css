@@ -1,295 +1,234 @@
 /*
   universalStyle.css
-  Combined styles from:
-	- chat/style.css
-	- hjem/style.css
-	- game/style.css
-
-  Notes:
-  - Where the same property differs across files I include both variants as commented lines
-	immediately above the chosen default value. Search for "ALTERNATE:" to find
-	alternative values preserved for reference.
-  - Paths to images/fonts are preserved as they appeared in each file; adjust
-	relative paths per where this universal file will be used.
+  Combined styles with standardized color scheme
 */
 
 /* ==========================
-   Color variables (both sets)
+   Color variables (standardized)
    ========================== */
 :root {
-	/* chat palette */
-	--powderB: #FEC5BB;
-	--almondS: #FCD5CE;
-	--softB: #FAE1DD;
-	--sea: #F8EDEB;
-	--alab1: #E8E8E4;
-	--alab2: #D8E2DC;
-	--linen: #ECE4DB;
-	--powderP: #FFE5D9;
-	--peach: #FFD7BA;
-	--peachG: #FEC89A;
-
-	/* hjem/game palette */
-	--color1: #FF9888;
-	--color2: #FFADA1;
-	--color3: #FFB8B2;
-	--color4: #F2CDC7;
-	--color5: #D2D2CA;
-	--color6: #BBD1C5;
-	--color7: #DECCBB;
-	--color8: #FFC3A8;
-	--color9: #FFB883;
-	--color10: #FFAF64;
-	--color11: rgba(255, 174, 161, 0.44);
-	--color12: rgba(255, 195,168, 0.44);
-	--colorWhite: #FFFFF0;
+    --color1: #FF9888;
+    --color2: #FFADA1;
+    --color3: #FFB8B2;
+    --color4: #F2CDC7;
+    --color5: #D2D2CA;
+    --color6: #BBD1C5;
+    --color7: #DECCBB;
+    --color8: #FFC3A8;
+    --color9: #FFB883;
+    --color10: #FFAF64;
+    --color18: rgba(255, 195, 168, 0.44);
 }
 
 a, u {
-	text-decoration: none;
-	color: black;
+    text-decoration: none;
+    color: black;
 }
 
 /* ==========================
-   Font faces (from hjem & game)
+   Font faces
    ========================== */
 @font-face {
-	font-family: "autumn";
-	/* ALTERNATE: src: url(other/fonts/autumn.ttf); */
-	src: url(other/fonts/Autumn.ttf);
+    font-family: "autumn";
+    src: url(/assets/fonts/Autumn.ttf);
 }
 
 @font-face {
-	font-family: "calenvanda";
-	src: url(other/fonts/Calenvanda.ttf);
+    font-family: "calenvanda";
+    src: url(/assets/fonts/Calenvanda.ttf);
 }
 
 @font-face {
-	font-family: "kugile";
-	src: url(other/fonts/Kugile.ttf);
+    font-family: "kugile";
+    src: url(/assets/fonts/Kugile.ttf);
 }
 
 /* ==========================
    Base / layout
    ========================== */
-/* Body background: multiple variants observed across files. Keep alternatives
-   as comments below. Choose default to --color9 (hjem) to match main site.
-*/
-/* la alle sidene definere sin egen bakgrunnsfarge for å se bedre ut
 body {
-	background-color: var(--color9);
+    background-color: #FFFFF0; /* Off-white to match profile/games */
 }
-*/
-/* Some files used a full-height flex layout recommendation. If you want
-   the footer to stay at the bottom reliably, consider enabling the
-   html/body height + body flex rules (kept commented so you can opt-in).
-*/
-/*
-html, body { height: 100%; margin: 0; }
-body { display: flex; flex-direction: column; min-height: 100vh; }
-.main_content { flex: 1; }
-*/
 
-/* Generic image reset found in multiple files */
+/* Generic image reset */
 img {
-	object-fit: contain;
-	height: 100%;
-	width: 100%;
+    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 /* ==========================
    Main content / Goals / Done
    ========================== */
-main_content {
+.main_content {
     display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	/* ALTERNATE: some files used explicit height: 90vh; */
-	height: 90vh;
-	/* Background image variants between files: */
-	/* ALTERNATE (hjem): background-image: url(../images/diary.jpg); */
-	/* ALTERNATE (game): background-image: url(images/diary.jpg); */
-	background-image: url("images/diary.jpg");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 90vh;
+    background-image: url(images/diary.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .goals {
-	display: flex;
-	width: 100%;
-	justify-content: left;
-	align-items: flex-start;
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    align-items: flex-start;
 }
+
 .done {
-	display: flex;
-	width: 100%;
+    display: flex;
+    width: 100%;
 }
 
 /* ==========================
-   Footer (combined)
+   Footer
    ========================== */
-/* There were two main variants:
-   - chat/style.css used a fixed bottom footer (position: fixed) with a
-	 background color and high z-index.
-   - hjem/style.css and game/style.css used a normal flow footer (no fixed).
-
-   Keep the fixed variant as the default (so footer always visible). The
-   non-fixed variant is kept as an alternate in comments.
-*/
-
 .footer {
-	z-index: 1000;
-	height: 8vh;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: flex-end;
-	/* DEFAULT (chat): fixed to bottom so always visible */
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	/* replaced chat var --alab1 -> hjem var --color6 */
-	background-color: var(--color11);
-	/* ALTERNATE (hjem/game): remove fixed positioning to let footer flow
-	   with the document:
-	position: static; bottom: auto; left: auto; right: auto;
-	background-color: transparent; */
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    background-color: transparent; /* Transparent to match profile/games pages */
 }
 
 .footer_element {
-	display: flex;
-	width: 100%;
-	height: 100%;
-	justify-content: center;
-	align-items: center;
-}
-.footer_element + .footer_element {
-	border-left: solid 1px white;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Hover variants: some files had the correct selector `.footer_element:hover`;
-   one file had a mistaken space `.footer_element :hover` (descendant hover).
-   Keep the correct selector and also preserve the alternate as a comment.
-*/
-.footer_element:hover{
-	cursor: pointer !important;
-	transform: scale(1.01);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.footer_element + .footer_element {
+    border-left: solid 1px white;
 }
-/* ALTERNATE (typo in chat file): .footer_element :hover { ... } */
+
+.footer_element:hover {
+    cursor: pointer !important;
+    transform: scale(1.01);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.footer_element img {
+    object-fit: contain !important;
+    height: 100% !important;
+    width: 100% !important;
+}
 
 /* ==========================
-   Post-it / goal UI (from hjem)
+   Post-it / goal UI
    ========================== */
 .postit {
-	height: 15vh;
-	width: 15vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	/* ALTERNATE background paths seen:
-	   url("images/postit.png")  (root chat)
-	   url("../images/postit.png") (hjem)
-	*/
-	background-image: url("images/postit.png");
-	background-size: cover;
-	background-position: center;
-	font-family: calenvanda;
-	font-size: 15px;
-	text-align: center;
+    height: 15vh;
+    width: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-image: url("images/postit.png");
+    background-size: cover;
+    background-position: center;
+    font-family: calenvanda;
+    font-size: 15px;
+    text-align: center;
+}
+
+.goal_input_div {
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#goal_input {
+    align-self: center;
 }
 
 /* ==========================
-   Chat grid (from chat/style.css)
+   Chat grid
    ========================== */
 .chatGrid {
-	display: grid;
-	grid-template-columns: 25% 75%;
-	/* Note: original chat file used rows 1fr 3fr (top small / bottom large)
-	   another file used 3fr 1fr in a different example. Keep 1fr 3fr as in
-	   the latest chat/style.css attachment. */
-	grid-template-rows: 1fr 3fr;
-	grid-template-areas:
-		"left-top right"
-		"left-bottom right";
-	gap: 12px;
-	height: 80vh;
-	align-items: stretch;
-	margin: 16px;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:
+        "left-top right"
+        "left-bottom right";
+    gap: 12px;
+    height: 80vh;
+    align-items: stretch;
+    margin: 16px;
 }
 
 .chatGrid .left-top {
-	grid-area: left-top;
-	/* replaced chat var --powderP -> hjem var --color5 */
-	background: var(--color4);
-	padding: 12px;
+    grid-area: left-top;
+    background: var(--color5);
+    padding: 12px;
 }
+
 .chatGrid .left-bottom {
-	grid-area: left-bottom;
-	/* replaced chat var --peach -> hjem var --color9 */
-	background: var(--color8);
-	padding: 12px;
-	font-size: 20px; /* from chat file */
+    grid-area: left-bottom;
+    background: var(--color8);
+    padding: 12px;
+    font-size: 20px;
 }
+
 .chatGrid .right {
-	grid-area: right;
-	/* replaced chat var --powderB -> hjem var --color1 */
-	background: var(--color1);
-	padding: 12px;
+    grid-area: right;
+    background: var(--color1);
+    padding: 12px;
 }
 
 /* ==========================
    Profile / small utilities
    ========================== */
 .profilepic {
-	height: 30px;
-	width: auto;
-	/* replaced chat var --powderB -> hjem var --color1 */
-	background-color: var(--color1);
-	border-radius: 40px;
+    height: 30px;
+    width: auto;
+    background-color: var(--color1);
+    border-radius: 40px;
 }
 
 /* ==========================
-   Games page styles (from game/style.css)
+   Games page styles
    ========================== */
 .games {
-	display: grid;
-	flex-direction: column; /* preserved from game file though redundant for grid */
-	grid-template-columns: auto auto;
-	width: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: auto;
 }
 
 .games_element {
-	background-color: var(--color12);
-	border-radius: 10px;
-	border-width: 10px;
-	height: 13vh;
-	display: flex;
-	flex-direction: row;
-	margin-right: 5vh;
-	margin-top: 2vh;
-	margin-bottom: 2vh;
-	align-items: center;
+    background-color: var(--color9);
+    border-radius: 10px;
+    border-width: 10px;
+    height: 13vh;
+    display: flex;
+    flex-direction: row;
+    margin-right: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    align-items: center;
 }
-.games_element:hover { cursor: pointer !important; }
 
-.game_pic { height: 100px; width: auto; }
+.games_element:hover {
+    cursor: pointer !important;
+}
+
+.game_pic {
+    height: 100px;
+    width: auto;
+}
+
 .two {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-left: 3vh;
-	padding-right: 3vh;
-	font-size: 50px;
-	font-family: calenvanda;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    font-size: 50px;
+    font-family: calenvanda;
 }
-
-/* ==========================
-   Footer: small accessibility note
-   ========================== */
-/* If you use position: fixed for footer make sure to add equivalent bottom
-   padding/margin to the main content so content is not hidden behind it. */
-

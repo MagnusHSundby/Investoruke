@@ -1,0 +1,184 @@
+/* 
+  chat.css
+  Page-specific styles for chat page
+  Color scheme, fonts, and footer inherited from universalStyle.css
+*/
+
+/* Chat-specific body adjustments */
+body {
+    margin: 0;
+    padding-bottom: 8vh; /* space for footer */
+    font-family: calenvanda, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #FFFFF0; /* same as home page */
+}
+
+/* Chat Grid Layout */
+.chatGrid {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:
+        "left-top right"
+        "left-bottom right";
+    gap: 12px;
+    height: calc(92vh - 16px); /* height adjusted for header/margins */
+    align-items: stretch;
+    margin: 16px;
+    margin-bottom: 8vh; /* leave space for footer */
+}
+
+.chatGrid .left-top {
+    grid-area: left-top;
+    background: var(--color9);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.chatGrid .left-bottom {
+    grid-area: left-bottom;
+    background: var(--color10);
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 8px;
+    overflow-y: auto;
+    margin-bottom: 0; /* remove extra spacing */
+}
+
+.chatGrid .right {
+    grid-area: right;
+    background: var(--color3);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Profile Pictures in User List */
+.profilepic {
+    height: 30px;
+    width: 30px;
+    background-color: var(--color3);
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+.left-bottom > div {
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.left-bottom > div:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Messages Area */
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 12px;
+}
+
+/* Prevent messages from being hidden behind footer */
+#messages::after {
+    content: "";
+    display: block;
+    height: 8vh; /* same as footer height */
+}
+
+#messages > li {
+    padding: 0.5rem 1rem;
+    margin: 4px 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#messages > li:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Message Form */
+#form {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    display: flex;
+    height: 3rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+}
+
+#input {
+    border: none;
+    padding: 0 1rem;
+    flex-grow: 1;
+    border-radius: 2rem;
+    margin-right: 0.5rem;
+    background: white;
+    font-family: calenvanda;
+}
+
+#input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color1);
+}
+
+#form > button {
+    background: var(--color11);
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: 2rem;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: calenvanda;
+    font-size: 16px;
+}
+
+#form > button:hover {
+    background: var(--color10);
+}
+
+/* Chat-specific footer adjustments */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #FFFFF0; /* match body background */
+    height: 8vh;               /* footer height */
+    display: flex;
+    justify-content: space-around; /* align icons evenly */
+    align-items: center;
+    padding: 0 16px;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+
+.footer .footer_element {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .footer_element img {
+    object-fit: contain !important;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+/* General image sizing for chat page */
+img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
