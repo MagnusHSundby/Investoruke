@@ -43,12 +43,163 @@
 	--color11: rgba(255, 174, 161, 0.44);
 	--color12: rgba(255, 195,168, 0.44);
 	--colorWhite: #FFFFF0;
+
+	/* Added missing color from user snippet */
+	/* --color18 is a semi-transparent variant used by some components */
+	--color18: rgba(255, 195, 168, 0.44);
 }
 
+
+/* ==========================
+   Additions merged from user-provided code
+   Note: I renamed selectors that would otherwise override existing rules.
+   Renamed:
+   - .main_content -> .main_content_alt (to avoid collisions with existing main_content tag)
+   - .footer -> .footer_page (to avoid colliding with existing .footer)
+   - .footer_element hover kept the same because it's identical to existing rules
+*/
+
+/* Generic anchors */
 a, u {
 	text-decoration: none;
 	color: black;
 }
+
+/* Keep the named root fonts unique if already defined */
+
+/* Body background (user wanted white-ish var) */
+body {
+	background-color: var(--colorWhite);
+}
+
+/* Renamed 'main_content' class from snippet to avoid overriding existing tag selectors */
+.main_content_alt {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	height: 90vh;
+	background-image: url(images/diary.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/* Footer variant from user snippet, renamed so the universal fixed footer remains unchanged */
+.footer_page {
+	height: 8vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: flex-end;
+}
+
+/* The footer element style is equivalent to what's already present in the universal CSS */
+.footer_element {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer_element:hover {
+	cursor: pointer !important;
+}
+
+.footer_element + .footer_element {
+	border-left: solid 1px white;
+}
+
+/* ensure the img rule is present (non-destructive) */
+
+/* Main layout pieces */
+.left {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	width: 50%;
+}
+
+.right {
+	width: 50%;
+}
+
+.profile {
+	display: flex;
+	flex-direction: row;
+	height: 15%;
+	margin-bottom: 10vh;
+}
+
+.picture {
+	height: 100%;
+}
+
+.name {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 1vh;
+	font-size: 50px;
+	font-family: calenvanda;
+}
+
+.achievements_element {
+	display: flex;
+	flex-direction: row;
+	background-color: var(--color18);
+	border-radius: 10px;
+	min-width: 250px;
+	margin-left: 20px;
+	margin-top: 20px;
+	align-items: center;
+}
+
+.achievements_image { height: 50px; }
+.achievements_text { display: flex; flex-direction: column; margin-left: 1vh; margin-right: 2vh; }
+.achievements_title { display: flex; align-items: center; font-size: 20px; font-weight: bold; font-family: autumn; padding-top: 10px; }
+.achievements_desc { display: flex; align-items: center; font-size: 15px; font-family: kugile; }
+
+.intro {
+	border-radius: 10px;
+	border-color: #D2D2CA;
+	border-width: 10px;
+	background-color: var(--color18);
+	margin-right: 30vh;
+	margin-top: 2vh;
+	padding: 5px;
+	min-width: 40vw;
+}
+
+.title { margin-top: 2vh; margin-bottom: 2vh; text-align: center; font-family: calenvanda; font-size: 25px; }
+.text { font-family: kugile; text-align: center; }
+
+.inputs { display: flex; flex-direction: column; justify-content: center; align-items: center; margin-right: 100px; margin-top: 10vh; }
+.input_box { margin-top: 2vh; }
+
+.input_box {
+	display: block;
+	width: 100%;
+	padding: 15px;
+	margin-top: 2vh;
+	font-size: 16px;
+	border: 2px solid var(--color3);
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(10px);
+	transition: all 0.3s ease;
+	box-sizing: border-box;
+	font-family: kugile;
+}
+
+h2 { font-family: kugile; }
+
+input { border-radius: 10px; width: 10vw; border-color: var(--color1); background-color: var(--color18); }
+
+.activity_card { background-color: var(--color18); display: flex; flex-direction: column; align-items: center; border-radius: 10px; max-width: 40vw; padding-bottom: 15px; }
+
+.task { display: flex; flex-direction: row; height: 50px; margin-left: 20px; padding: 10px; margin-bottom: 10px; min-width: 80%; justify-content: flex-start; align-self: flex-start; background-color: var(--color8); border-radius: 10px; }
+
 
 /* ==========================
    Font faces (from hjem & game)
