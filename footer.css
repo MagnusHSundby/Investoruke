@@ -1,0 +1,111 @@
+:root {
+    --color1: #FF9888;
+    --color2: #FFADA1;
+    --color3: #FFB8B2;
+    --color5: #F2CDC7;
+    --color6: #D2D2CA;
+    --color7: #BBD1C5;
+    --color8: #DECCBB;
+    --color9: #FFC3A8;
+    --color10: #FFB883;
+    --color11: #FFAF64;
+}
+
+@font-face {
+    font-family: "autumn";
+    src: url(Font/Autumn\ Crush.ttf);
+
+}
+
+@font-face {
+    font-family: "calenvanda";
+    src: url(Font/Calen\ Vanda.ttf);
+    
+}
+
+@font-face {
+    font-family: "kugile";
+    src: url(Font/Kugile_Demo.ttf);
+    
+}
+
+
+body{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #fffff0;
+    position: fixed;
+}
+
+.nav {
+    margin-top: auto;
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 11vh;
+    background: var(--color7);
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    z-index: 9999;
+}
+
+.tab {
+    width: 150px;
+    height: 150px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.tab.active { 
+    position: relative;
+    background-color: #fffff0;
+    border-radius: 50%;
+    top: -40px;
+    -webkit-animation: fadein 1s;
+    -moz-animation: fadein 1s;
+    -ms-animation: fadein 1s; 
+    -o-animation: fadein 1s; 
+    animation: fadein 1s;
+}
+
+@keyframes fadein {
+    0% { border-radius: 0%; top: -40px; background-color: var(--color7);}
+    100%   { border-radius: 50%; top: -40px; background-color: #fffff0;}
+}
+
+.tab img {
+    width: 90px;
+    height: 90px;
+    pointer-events: none;
+    padding: 14px;
+
+}
+
+.tab.active img {
+    background-color: var(--color7);
+    top: -20px;
+    position: relative;
+    margin: 0;
+    border-radius: 50%;
+    /*FROM STACK OVERFLOW*/
+    -webkit-animation: fadeini 1s;
+    -moz-animation: fadeini 1s;
+    -ms-animation: fadeini 1s; 
+    -o-animation: fadeini 1s; 
+    animation: fadeini 1s;
+} 
+
+@keyframes fadeini {
+    0% { border-radius: 0%; top: 40px;}
+    100%   { border-radius: 50%; top: -20px; }
+}
+
