@@ -49,6 +49,26 @@
 	--color18: rgba(255, 195, 168, 0.44);
 }
 
+/* Data attribute overrides to support theme swapping even when CSS link cannot be swapped
+   This provides a fallback path by swapping variable values based on html[data-theme].
+*/
+html[data-theme="dark"] {
+	--color1: #344c78;
+	--color2: #6c87cc;
+	--color3: #b4befd;
+	--color4: #dbbfe6;
+	--color5: var(--color3);
+	--color6: var(--color3);
+	--color7: var(--color4);
+	--color8: var(--color2);
+	--color9: var(--color2);
+	--color10: var(--color2);
+	--color11: var(--color2);
+	--color12: var(--color3);
+	--color18: var(--color3);
+	--bg: var(--color3);
+}
+
 
 /* ==========================
    Additions merged from user-provided code
@@ -69,7 +89,14 @@ a, u {
 
 /* Body background (user wanted white-ish var) */
 body {
-	background-color: var(--colorWhite);
+	/* Use --bg to allow dataset theme overrides */
+	--bg: var(--colorWhite);
+	background-color: var(--bg);
+}
+
+/* dark theme overrides via data attribute on <html> */
+html[data-theme="dark"] {
+	--bg: var(--color3);
 }
 
 /* Renamed 'main_content' class from snippet to avoid overriding existing tag selectors */

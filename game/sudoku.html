@@ -3,7 +3,8 @@
 
     
 <head>
-<link rel="stylesheet" href="../universalStyle.css">
+<link id="site-style-link" rel="stylesheet" href="../universalStyle.css">
+<script src="../site-theme.js"></script>
 <link rel="icon" href="../Ikoner/logo.svg">
 <style>
 body {
@@ -138,7 +139,7 @@ background-color: #899db6;
 }
 .sudokubutton1:hover,.sudokubutton2:hover,.sudokubutton3:hover,.sudokubutton4:hover,
 .sudokubutton5:hover,.sudokubutton6:hover,.sudokubutton7:hover {
-background-color: #EDEDED;
+background-color: var(--bg);
 color: black;
 cursor: pointer;
 }

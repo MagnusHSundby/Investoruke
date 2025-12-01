@@ -6,26 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investorukene</title>
     <link rel="icon" href="images/logo.svg">
+    <link id="site-style-link" rel="stylesheet" href="../universalStyle.css">
+    <script src="../site-theme.js"></script>
     <style>
-        :root {
-                /* Ensure color18 exists locally to avoid relying on another stylesheet */
-                --color18: rgba(255, 195, 168, 0.44);
- 	--color1: #FF9888;
-	--color2: #FFADA1;
-	--color3: #FFB8B2;
-	--color4: #F2CDC7;
-	--color5: #D2D2CA;
-	--color6: #BBD1C5;
-	--color7: #DECCBB;
-	--color8: #FFC3A8;
-	--color9: #FFB883;
-	--color10: #FFAF64;
-	--color11: rgba(255, 174, 161, 0.44);
-	--color12: rgba(255, 195,168, 0.44);
-	--colorWhite: #FFFFF0;
-
-
-}
+        /* Color variables are centralized in universalStyle.css to enable site-wide theming */
 
 
 
@@ -48,7 +32,7 @@
 
 
 body {
-    background-color: #FFFFF0;
+    background-color: var(--bg);
 }
 
 .main_content {
@@ -98,6 +82,18 @@ img {
     padding: 1vh;
     border-radius: 6px;
 }
+
+/* Theme toggle button */
+#themeToggle {
+    margin-left: 1vh;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(0,0,0,0.06);
+    cursor: pointer;
+}
+/* small change on hover */
+#themeToggle:hover { transform: scale(1.05); }
 
 .picture {
     height: 100%;
@@ -306,6 +302,7 @@ input {
             <div class="profile">
                 <div class="picture"> <img id="profile_picture" src="Profilbilder/image.png"> </div>
                 <div class="name"> User#3297 </div>
+                <button id="themeToggle" title="Toggle theme">🌓</button>
             </div>
 
             <div class="achievements">
