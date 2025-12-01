@@ -1,7 +1,7 @@
 function addAchievement(
   title = "New Achievement",
   description = "Achievement unlocked!",
-  imageSrc = "images/temp.png"
+  imageSrc = "Profilbilder/image copy.png"
 ) {
   let achievementsContainer = document.querySelector(
     ".main_content .left .achievements"
