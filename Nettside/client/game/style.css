@@ -1,0 +1,122 @@
+:root {
+    --color1: #FF9888;
+    --color2: #FFADA1;
+    --color3: #FFB8B2;
+    --color5: #F2CDC7;
+    --color6: #D2D2CA;
+    --color7: #BBD1C5;
+    --color8: #DECCBB;
+    --color9: #FFC3A8;
+    --color10: #FFB883;
+    --color11: #FFAF64;
+}
+
+@font-face {
+    font-family: "autumn";
+    src: url(other/fonts/autumn.ttf);
+
+}
+
+@font-face {
+    font-family: "calenvanda";
+    src: url(other/fonts/calenvanda.ttf);
+    
+}
+
+@font-face {
+    font-family: "kugile";
+    src: url(other/fonts/kugile.ttf);
+    
+}
+
+
+body {
+    background-color: var(--color5);
+}
+
+.main_content {
+    display: flex;
+    flex-direction: row;   
+    justify-content: space-evenly; 
+    height: 90vh;
+    background-image: url(images/diary.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+}
+
+.footer {
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+
+}
+
+.footer_element {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_element:hover {
+    cursor: pointer !important;
+}
+
+.footer_element + .footer_element {
+    border-left: solid 1px white;
+}
+
+
+
+
+/********************/
+
+img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.games {
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: auto auto;
+    width: auto;
+}
+
+
+.games_element {
+    background-color: var(--color11);
+    border-radius: 10px;
+    border-width: 10px;
+    height: 13vh;
+    display: flex;
+    flex-direction: row;
+    margin-right: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.games_element:hover {
+    cursor: pointer !important;
+}
+
+
+.game_pic {
+    height: 100px;
+    width: auto;
+}
+
+.two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    font-size: 50px;
+    font-family: calenvanda;
+}
