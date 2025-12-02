@@ -34,6 +34,9 @@ app.use((req, res, next) => {
 // Serve static assets from client/assets
 app.use('/assets', express.static(join(__dirname, '..', 'client', 'assets')));
 
+// Serve includes (shared HTML snippets)
+app.use('/includes', express.static(join(__dirname, '..', 'client', 'includes')));
+
 // Serve CSS files
 app.use('/css', express.static(join(__dirname, '..', 'client', 'assets', 'css')));
 

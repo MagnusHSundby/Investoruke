@@ -24,13 +24,17 @@
 </head>
 <body>
 <canvas width="400" height="400" id="game"></canvas>
-<div class="footer">
-    <a class="footer_element" href="/summary"><img src="/icons/Summary icon.png" alt="Summary"></a>
-    <a class="footer_element" href="/chat"><img src="/icons/Chat icon.png" alt="Chat"></a>
-    <a class="footer_element" href="/hjem"><img src="/icons/Home Icon.png" alt="Home"></a>
-    <a class="footer_element" href="/profile"><img src="/icons/Profile icon.png" alt="Profile"></a>
-    <a class="footer_element" href="/game"><img src="/icons/Game icon.png" alt="Games"></a>
-</div>
+<link rel="stylesheet" href="/css/footer.css">
+<footer class="nav">
+  <div class="indicator"></div>
+
+  <a href="/profile"><button class="tab" data-i="0"><img src="/icons/Profile icon.png" alt="Profile"></button></a>
+  <a href="/summary"><button class="tab" data-i="1"><img src="/icons/Summary icon.png" alt="Summary"></button></a>
+  <a href="/hjem"><button class="tab" data-i="2"><img src="/icons/Home Icon.png" alt="Home"></button></a>
+  <a href="/chat"><button class="tab" data-i="3"><img src="/icons/Chat icon.png" alt="Chat"></button></a>
+  <a href="/game"><button class="tab active" data-i="4"><img src="/icons/Game icon.png" alt="Games"></button></a>
+</footer>
+<script src="/js/footer.js"></script>
 <script>
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
