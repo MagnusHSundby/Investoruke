@@ -1,0 +1,139 @@
+:root {
+    --color1: #FF9888;
+    --color2: #FFADA1;
+    --color3: #FFB8B2;
+    --color4: #F2CDC7;
+    --color5: #D2D2CA;
+    --color6: #BBD1C5;
+    --color7: #DECCBB;
+    --color8: #FFC3A8;
+    --color9: #FFB883;
+    --color10: #FFAF64;
+}
+
+@font-face {
+    font-family: "autumn";
+    src: url(Font/Autumn\ Crush.ttf);
+
+}
+
+@font-face {
+    font-family: "calenvanda";
+    src: url(Font/Calen\ Vanda.ttf);
+    
+}
+
+@font-face {
+    font-family: "kugile";
+    src: url(Font/Kugile_Demo.ttf);
+    
+}
+
+body{
+    background: #fffff0;
+    margin: 0;
+}
+
+h1{
+    font-family: autumn;
+    letter-spacing: 25%;
+    color: white;
+    text-align: center;
+    background-color: var(--color3);
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+    font-weight: 100;
+    z-index: 1000;
+    font-size: 34px;
+}
+
+p{
+    background-color: var(--color8);
+    padding: 30px;
+    align-items: center;
+    margin: 20px;
+    border-radius: 25px;
+    font-family: calenvanda;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+p:hover{
+    background-color: #ffa479;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+h3{
+    background-color: var(--color4);
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    font-family: autumn;
+    font-weight: 100;
+    letter-spacing: 8%;
+    font-size: 26px;
+}
+
+#checkpoint{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    gap: 100px;
+}
+
+#stop{
+    background-color: var(--color1);
+}
+
+#reflect{
+    background-color: #FFAF65;
+}
+
+#go{
+    background-color: #8ED3AD;
+}
+
+#stop, #reflect, #go{
+    padding: 20px;
+    width: 50vh;
+    border-radius: 20px;
+}
+
+#stop h6, #reflect h6, #go h6{
+    font-size: 46px;
+    font-family: calenvanda;
+    font-weight: 100;
+    margin: 0;
+    padding: 30px;
+}
+
+#stop span, #reflect span, #go span{
+    font-size: 20px;
+    font-family: kugile;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+#stop p, #reflect p, #go p{
+    background-color: #fffff0;
+    padding: 5px;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding-left: 15px;
+    font-family: kugile;
+    font-size: 18px;
+}
+
+#emoji p{
+    padding: 5px;
+    margin-left: 100px;
+    font-size: 40px;
+}
