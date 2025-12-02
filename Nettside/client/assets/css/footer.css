@@ -1,0 +1,164 @@
+:root {
+    --color-primary: #FF9888; 
+    --color-accent: #DECCBB;  
+    --color-spot: #FFAF64;    
+    --footer-height: 9vh;
+    --footer-active-bg: #BBD1C5; 
+}
+
+:root { --notch-size: 80px; }
+:root { --notch-bg: rgba(187,209,197,0.28); }
+
+:root {
+    --color1: #FF9888;
+    --color2: #FFADA1;
+    --color3: #FFB8B2;
+    --color5: #F2CDC7;
+    --color6: #D2D2CA;
+    --color7: #BBD1C5;
+    --color8: #DECCBB;
+    --color9: #FFC3A8;
+    --color10: #FFB883;
+    --color11: #FFAF64;
+}
+
+@font-face {
+    font-family: "autumn";
+    src: url('/fonts/autumn.ttf');
+}
+@font-face {
+    font-family: "calenvanda";
+    src: url('/fonts/calenvanda.ttf');
+}
+@font-face {
+    font-family: "kugile";
+    src: url('/fonts/kugile.ttf');
+}
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--footer-height);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--color-accent);
+    z-index: 9999;
+}
+
+/* decorative notch behind the active tab */
+.nav::before{
+    content: "";
+    position: absolute;
+    top: -18px;
+    left: 0;
+    width: var(--notch-size);
+    height: var(--notch-size);
+    background: var(--notch-bg);
+    border-radius: 50%;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    transform: translateX(var(--notch-x, 0));
+    transition: transform 0.15s cubic-bezier(.2,.9,.2,1), box-shadow 0.18s ease;
+    pointer-events: none;
+}
+
+.indicator{
+    display: none !important;
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 90px;
+    height: 6px;
+    background: var(--color-spot);
+    border-radius: 6px;
+    transition: transform 0.18s ease;
+    pointer-events: none;
+}
+
+.tab {
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 120px; 
+    z-index: 3;
+    padding: 0;
+}
+
+.tab img {
+    width: 72px;
+    height: 72px;
+    pointer-events: none;
+}
+
+/* Responsive: slightly smaller icons on narrow viewports */
+@media (max-width: 420px){
+    .tab img{ width: 52px; height:52px; }
+    .indicator{ width: 70px; }
+}
+
+.tab.active{
+    position: relative;
+    background-color: #fffff0;
+    border-radius: 50%;
+    top: -20px; /* smaller rise */
+    -webkit-animation: fadein .35s ease-out;
+    -moz-animation: fadein .35s ease-out;
+    -ms-animation: fadein .35s ease-out;
+    -o-animation: fadein .35s ease-out;
+    animation: fadein .35s ease-out;
+}
+
+/* use a footer-scoped variable so page styles (e.g. summary/style.css) don't override this */
+.nav .tab.active img{
+    background-color: var(--footer-active-bg) !important;
+    top: -12px; /* subtler lift */
+    position: relative;
+    margin: 0;
+    border-radius: 50%;
+    -webkit-animation: fadeini .35s ease-out;
+    -moz-animation: fadeini .35s ease-out;
+    -ms-animation: fadeini .35s ease-out;
+    -o-animation: fadeini .35s ease-out;
+    animation: fadeini .35s ease-out;
+}
+
+@keyframes fadein {
+    0% { transform: scale(.98); top: -20px; background-color: var(--color7);} 
+    100%   { transform: scale(1); top: -20px; background-color: #fffff0;}
+}
+
+@keyframes fadeini {
+    0% { border-radius: 50%; top: 0px; opacity: .9; } 
+    100%   { border-radius: 50%; top: -12px; opacity: 1; }
+}
+
+/* small accessibility: anchor wrapping */
+a > .tab{ display: inline-flex; }
+
+/* Ensure footer styles override generic .footer rules if present */
+.nav, .nav * { box-sizing: border-box; }
+
+.footer { /* alias for .nav */
+    all: unset;
+    display: block;
+}
+.footer_element { display: inline-flex; }
+.footer { display: block; }
+
+.nav .footer_element, .nav .footer_element img {
+    display: flex !important;
+    width: auto !important;
+    height: auto !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.nav { height: var(--footer-height) !important; background: var(--color-accent) !important; }
+
+.nav .indicator{ background: var(--color-spot) !important; }
+
